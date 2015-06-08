@@ -1,0 +1,14 @@
+/* Variables */
+$two-column: 48.75em; // 780px = 16px * 46
+$full: 65em; // 1040px = 16px * 65
+$small: 30em; // 480px = 16px * 30
+$maroon: #6f0d14;
+
+/* Mixins */
+%group {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}

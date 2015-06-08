@@ -1,0 +1,683 @@
+@import "compass/css3";
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker|Arimo:400,700,400italic|Open+Sans:400,700,400italic|Pacifico);
+
+/* =Reset
+----------------------------------------------- */
+@import "_reset";
+
+/* =Bits
+----------------------------------------------- */
+@import "_bits";
+
+/* =Global
+----------------------------------------------- */
+@import "_global";
+
+/* =Header
+----------------------------------------------- */
+.site-header {
+	@extend %group;
+	margin: 0 auto;
+	width: 90%;
+	@media (min-width: 60em) { // 60em * 16px = 960px
+		width: 96rem;
+	}
+	@media (min-width: $full) { // 65em * 16px = 1040px
+		width: 90%;
+	}
+	hgroup {
+		@media (min-width: 30em) { // 480px
+			float: left;
+		}
+		@extend %group;
+	}
+	.site-title {
+		a {
+			color: white;
+			font-family: "Permanent Marker", sans-serif;
+			font-size: 5rem;
+			text-decoration: none;
+		}
+	}
+	.site-description {
+		color: white;
+	}
+	.gfo {
+		background: url('../images/gfo_logo.png') no-repeat;
+		float: right;
+		margin-top: 1rem;
+		width: 200px;
+		width: 20rem;
+		height: 71px;
+		height: 7.1rem;
+	}
+}
+
+/* =Navigation
+----------------------------------------------- */
+.main-navigation {
+	background-color: rgba(0,0,0,0.2);
+	border: 2px solid rgba(0,0,0,0.1);
+	margin-top: 2rem;
+	padding: 2rem;
+	width: 100%;
+	@media (min-width: $two-column) {
+		float: left;
+		width: 24rem;
+	}
+	@media (min-width: 60em) {
+		width: 26%;
+	}
+	ul {
+		margin: 0;
+		padding-left: 0;
+	}
+	li {
+		border-top: 1px solid #3D3733;
+		display: block;
+		position: relative;
+		&:first-child {
+			border: none;
+		}
+		.sub-menu {
+			display: none;
+			margin-left: 1rem;
+			li {
+				border-top: 1px solid #6b6562;
+			}
+			a {
+				font-style: italic;
+				font-size: 1.8rem;
+				font-weight: 500;
+				padding: 0.5rem 0.5rem 0.5rem 1rem;
+			}
+		}
+		&.current-menu-item,
+		&.current-menu-parent,
+		&.current-menu-ancestor {
+			.sub-menu {
+				display: block;
+			}
+		}
+	}
+	a {
+		display: block;
+		font-family: 'Arimo', sans-serif;
+		font-size: 2rem;
+		font-weight: 700;
+		color: #404040;
+		padding: 1rem;
+		text-decoration: none;
+		@include transition(background-color, 0.2s);
+		&:hover {
+			background-color: rgba(0,0,0,0.3);
+			color: black;
+		}
+	}
+}
+/* Small menu */
+.menu-toggle {
+	cursor: pointer;
+}
+.main-small-navigation .menu {
+	display: none;
+}
+
+/* =Content
+----------------------------------------------- */
+.background {
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	@extend %group;
+}
+.site-main {
+	min-height: 90rem;
+}
+/* Home page */
+.home {
+	.content-area {
+		background-color: transparent;
+		@include box-shadow(none);
+	}
+	.main-navigation {
+		background-color: rgba(221, 221, 221, 0.9);
+		margin: 0 0 2rem 0;
+	}
+	.site-content {
+		background-color: rgba(221, 221, 221, 0.9);
+		border: 2px solid rgba(0,0,0,0.1);
+		p {
+			margin-bottom: 0;
+		}
+	}
+}
+
+/* Main structure */
+.content-area {
+	background-color: rgba(221, 221, 221, 0.9);
+	@include box-shadow(rgba(0,0,0,0.2) 0 0 2px 1px);
+	box-sizing: border-box;
+	margin: 2rem auto 4rem;
+	padding: 2rem;
+	width: 100%;
+	min-height: 50rem;
+	@media (min-width: 60em) { // 60em * 16px = 960px
+		max-width: 96rem;
+	}
+	@media (min-width: $full) { // 65em * 16px = 1040px
+		max-width: 90%;
+	}
+	@extend %group;
+}
+
+.site-content {
+	color: #404040;
+	padding: 2rem;
+	width: 100%;
+	@media (min-width: $two-column) {
+		width: 64.1025641%;
+		float: right;
+	}
+	@media (min-width: 55em) { // 880px
+		width: 69.047619%; // 580px / 840px
+	}
+	@media (min-width: 60em) {
+		max-width: 74%;
+	}
+}
+.page {
+	.bx-wrapper {
+		.bx-viewport {
+			box-shadow: none;
+			border: none;
+			background: transparent;
+		}
+		.bx-prev {
+			left: auto;
+		}
+		.bx-controls-direction a {
+			top: 118%;
+			z-index: 2;
+		}
+		.bx-pager {
+			bottom: -4rem;
+		}
+	}
+}
+.entry-header {
+	margin-bottom: 2rem;
+	@extend %group;
+	.entry-title {
+		background-color: rgba(0,0,0,0.7);
+		@include box-shadow(rgba(0,0,0,0.2) 2px 2px 1px);
+		color: #d5d5d5;
+		float: left;
+		font-family: 'Arimo', sans-serif;
+		font-size: 2.4rem;
+		font-weight: 700;
+		margin-left: -3rem;
+		padding: 1rem 5rem 0.8rem 5rem;
+		text-transform: uppercase;
+	}
+}
+.entry-content {
+	margin-top: 1rem;
+	h1 {
+		font-size: 1.4em;
+		font-weight: 700;
+	}
+	h2 {
+		font-size: 1.2em;
+		font-weight: 700;
+	}
+}
+.post-feature-image {
+	margin: 1rem 0;
+	text-align: center;
+}
+q {
+	font-family: Arimo, sans-serif;
+	font-style: italic;
+	&:before {
+		content: open-quote;
+	}
+	&:after {
+		content: close-quote;
+	}
+}
+blockquote {
+	border-left: 5px solid rgba(0,0,0,0.5);
+	font-style: italic;
+	padding-left: 2rem;
+	p:first-child {
+		&:before {
+			content: open-quote;
+			font-family: 'Pacifico', serif;
+			font-size: 2.8rem;
+		}
+	}
+	p:last-child {
+		margin-bottom: 0;
+		&:after {
+			content: close-quote;
+			font-family: 'Pacifico', serif;
+			font-size: 2.8rem;
+		}
+	}
+}
+.map {
+	margin-bottom: 2rem;
+	iframe {
+		width: 100%;
+	}
+}
+.project-gallery {
+	margin: 2rem 0;
+	@extend %group;
+	.gallery-image {
+		float: left;
+		margin: 1rem 2rem;
+		width: 15rem;
+		img {
+			border: 5px solid white;
+			border-radius: 2px;
+			@include box-shadow(rgba(0,0,0,0.2) 0 2px 2px 2px);
+			max-width: 15rem;
+			height: auto;
+		}
+	}
+}
+.page-gallery {
+	.gallery-image {
+		width: 15rem;
+		img {
+			max-width: 15rem;
+			height: auto;
+			margin: 0 auto;
+		}
+	}
+}
+
+.team {
+	.member {
+		background-color: rgba(0,0,0,0.2);
+		margin-bottom: 2rem;
+		padding: 2rem;
+		@extend %group;
+		img {
+			float: left;
+			margin: 0 1em 1em 0;
+			max-width: 200px;
+			height: auto;
+			width: 25%;
+		}
+		hgroup {
+			float: left;
+			margin-bottom: 1rem;
+			height: 25%;
+			@media (min-width: 27.5em) { // 440px
+				width: 70%;
+			}
+		}
+		h1 {
+			font-family: 'Arimo', 'Open Sans', sans-serif;
+			font-size: 1.5em;
+			color: #3d3733;
+		}
+		h2 {
+			font-family: 'Arimo', 'Open Sans', sans-serif;
+			font-style: italic;
+			font-size: 1.2em;
+			color: #3d3733;
+		}
+		p {
+			clear: left;
+			@media (min-width: 34.375em) { // 550px
+				clear: none;
+				float: left;
+				width: 70%;
+			}
+			@media (min-width: $two-column) {
+				clear: left;
+				float: none;
+				width: 100%;
+			}
+			@media (min-width: 55.625em) { // 890px
+				clear: none;
+				float: left;
+				width: 70%;
+			}
+		}
+	}
+}
+.rows {
+	.row-single {
+		background-color: rgba(0,0,0,0.2);
+		margin-bottom: 2rem;
+		padding: 2rem;
+		@extend %group;
+		h1 {
+			color: #3d3733;
+			clear: none;
+			font-family: 'Arimo', 'Open Sans', sans-serif;
+			font-size: 1.5em;
+		}
+		.row-title {
+			float: left;
+			margin-bottom: 1rem;
+			height: 25%;
+			@media (min-width: 27.5em) { // 440px
+				width: 70%;
+			}
+		}
+		.row-content {
+			clear: left;
+			@media (min-width: 34.375em) { // 550px
+				clear: none;
+				float: left;
+				width: 70%;
+			}
+			@media (min-width: $two-column) {
+				clear: left;
+				float: none;
+				width: 100%;
+			}
+			@media (min-width: 55.625em) { // 890px
+				clear: none;
+				float: left;
+				width: 70%;
+			}
+		}
+		a {
+			display: block;
+			float: left;
+			margin: 0 1em 1em 0;
+			max-width: 200px;
+			width: 25%;
+		}
+		img {
+			height: auto;
+			width: 100%;
+		}
+	}
+}
+
+.projects {
+	.project {
+		background-color: rgba(0,0,0,0.2);
+		float: left;
+		margin: 0 1rem 1rem 0;
+		min-height: 44rem;
+		padding: 2rem 1rem;
+		@media (min-width: 36.25em) {
+			width: 22rem;
+		}
+		@media (min-width: $two-column) {
+			width: 20rem;
+		}
+		@media (min-width: 51.25em) { // 820px
+			width: 22rem;
+		}
+		@media (min-width: 55em) { // 880px
+			padding: 2rem 1.5rem;
+			width: 25rem;
+		}
+		@include transition(background-color, 0.2s);
+		&:hover {
+			background-color: rgba(0,0,0,0.3);
+		}
+		h1 {
+			font-family: 'Arimo', 'Open Sans', sans-serif;
+			font-size: 1.3em;
+			color: #3d3733;
+		}
+		img {
+			border: 5px solid rgba(0,0,0,0.2);
+			display: block;
+			@media (min-width: 31.25em) {
+				margin-left: -1rem;
+			}
+			@media (min-width: 36.25em) {
+				margin: 0 auto;
+			}
+			@media (min-width: $two-column) {
+				margin-left: -1rem;
+			}
+			@media (min-width: 51.25em) {
+				margin: 0 auto 1.5rem;
+			}
+		}
+		p {
+			color: #404040;
+			margin-bottom: 0;
+		}
+	}
+}
+
+.sticky {
+}
+.hentry {
+	margin: 0 0 1.5em;
+}
+.entry-meta {
+	clear: both;
+}
+.byline {
+	display: none;
+}
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+.gform_wrapper {
+	.gform_fields {
+		margin-left: 0;
+	}
+	.gfield {
+		margin-bottom: 1rem;
+	}
+	.gfield_label {
+		font-family: 'Open Sans', sans-serif;
+		font-size: 1.1em;
+		font-weight: 600;
+	}
+	.ginput_container {
+		input[type='text'],
+		input[type='tel'],
+		input[type='email'],
+		textarea {
+			background-color: #f2f2f2;
+			border: 2px solid rgba(0,0,0,0.2);
+			font-family: 'Open Sans', sans-serif;
+			font-size: 1.4rem;
+			margin-top: 0.5rem;
+			padding: 0.5rem;
+			width: 100%;
+		}
+	}
+	.validation_message {
+		color: #80171e;
+	}
+	div[class^="gform_confirmation_message"] {
+		color: $maroon;
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+
+}
+/* =Asides
+----------------------------------------------- */
+
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+	display: none;
+}
+
+/* =Footer
+----------------------------------------------- */
+
+.fb-wrapper {
+	position: fixed;
+	bottom: 0;
+	.fb-button {
+		background: url(../images/facebook_logo.jpg) no-repeat;
+		background-size: cover;
+		cursor: pointer;
+		width: 10rem;
+		height: 3.25rem;
+	}
+	.fb-like-box {
+		background-color: rgba( 221, 221, 221, 1);
+		display: none;
+		width: 38rem;
+		height: 23.8rem;
+	}
+}
+.site-info {
+	color: #ddd;
+	font-size: 1.2rem;
+	margin-bottom: 2rem;
+	text-align: center;
+	a {
+		color: #bfbfbf;
+		text-decoration: none;
+		&:hover {
+			color: #848484;
+		}
+	}
+}
+/* =Media
+----------------------------------------------- */
+
+.site-header img,
+.entry-content img,
+.comment-content img,
+.widget img {
+	max-width: 100%; /* Fluid images for posts, comments, and widgets */
+}
+.site-header img,
+.entry-content img,
+.comment-content img[height],
+img[class*="align"],
+img[class*="wp-image-"] {
+	height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+}
+.site-header img,
+.entry-content img,
+img.size-full,
+.post-feature-image img {
+	max-width: 100%;
+	width: auto; /* Prevent stretching of full-size images with height and width attributes in IE8 */
+	height: auto;
+}
+.entry-content img.wp-smiley,
+.comment-content img.wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+.wp-caption {
+	border: 1px solid #ccc;
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin: 1.2% auto 0;
+	max-width: 98%;
+}
+.wp-caption-text {
+	text-align: center;
+}
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+.site-content .gallery {
+	margin-bottom: 1.5em;
+}
+.gallery-caption {
+}
+.site-content .gallery a img {
+	height: auto;
+}
+.site-content .gallery dd {
+	margin: 0;
+}
+.site-content .gallery-columns-4 .gallery-item {
+}
+.site-content .gallery-columns-4 .gallery-item img {
+}
+
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+
+/* =Site Navigation
+----------------------------------------------- */
+
+.site-content .site-navigation {
+	margin: 0 0 1.5em;
+	overflow: hidden;
+}
+.site-content .nav-previous {
+	float: left;
+	width: 50%;
+}
+.site-content .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+/* =Comments
+----------------------------------------------- */
+
+.comment-content a {
+	word-wrap: break-word;
+}
+.bypostauthor {
+}
+
+/* =Widgets
+----------------------------------------------- */
+
+.widget {
+	margin: 0 0 1.5em;
+}
+
+/* Make sure select elements fit in widgets */
+.widget select {
+	max-width: 100%;
+}
+
+/* Search widget */
+#searchsubmit {
+	display: none;
+}
+
+/* =Infinite Scroll
+----------------------------------------------- */
+
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll #nav-above, /* Older / Newer Posts Navigation (always hidden) */
+.infinite-scroll #nav-below,
+.infinite-scroll.neverending #colophon { /* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+.infinity-end.neverending #colophon {
+	display: block;
+}
