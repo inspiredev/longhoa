@@ -1,0 +1,27 @@
+{
+  "name": "longhoa",
+  "version": "1.0.0",
+  "description": "_s ===",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inspiredev/longhoa.git"
+  },
+  "author": "Tri Nguyen <tri@tridnguyen.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inspiredev/longhoa/issues"
+  },
+  "homepage": "https://github.com/inspiredev/longhoa#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-csso": "^1.0.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.0.1",
+    "gulp-util": "^3.0.5"
+  }
+}
