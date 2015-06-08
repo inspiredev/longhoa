@@ -4,6 +4,8 @@ var sass = require('gulp-sass');
 var plumber = require('gulp-plumber');
 var prefix = require('gulp-autoprefixer');
 var csso = require('gulp-csso');
+var rsync = require('gulp-rsync');
+var server = require('./server.json');
 
 var path = {
 	scss: {
@@ -28,6 +30,15 @@ gulp.task('css', function () {
 		.pipe(csso())
 		.pipe(gulp.dest(path.scss.dest));
 });
+
+gulp.task('deploy', function () {
+	return gulp.src(['./**', '!./node_modules/**'])
+		.pipe(rsync({
+			hostname: server.hostname,
+			username: server.username,
+			destination: server.destination
+		}));
+})
 
 gulp.task('watch', function () {
 	gulp.watch(path.scss.src + '**/*.scss', ['scss']);
